@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0A0B0D" />
+    <title>DevPedia — Offline</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0a0b0d;
+        color: #f2f2f3;
+        font-family: ui-monospace, "SF Mono", "Cascadia Mono", Consolas,
+          monospace;
+        text-align: center;
+        padding: 24px;
+        box-sizing: border-box;
+      }
+      .card {
+        max-width: 360px;
+      }
+      .mark {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 24px;
+        border-radius: 16px;
+        background: #0a0b0d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mark svg {
+        width: 48px;
+        height: 48px;
+      }
+      h1 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 8px;
+      }
+      p {
+        font-size: 14px;
+        color: #a2a4ac;
+        line-height: 1.5;
+        margin: 0 0 24px;
+      }
+      button {
+        font: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        color: #0a0b0d;
+        background: #5b8cff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      button:active {
+        opacity: 0.85;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="mark">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="50,8 92,50 50,92 8,50" fill="#5B8CFF" />
+          <text
+            x="50"
+            y="62"
+            text-anchor="middle"
+            font-family="ui-monospace, monospace"
+            font-weight="700"
+            font-size="34"
+            fill="#0A0B0D"
+          >D</text>
+        </svg>
+      </div>
+      <h1>Wala kang koneksyon</h1>
+      <p>
+        Offline ka ngayon at hindi pa cached ang page na ito. Kapag bumalik
+        ang internet, awtomatiko itong maa-access ulit.
+      </p>
+      <button onclick="location.reload()">Subukan ulit</button>
+    </div>
+  </body>
+</html>

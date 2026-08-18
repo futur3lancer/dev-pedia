@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * DevPedia design tokens.
+ * Dark-first by design (dev tool used next to the editor, late-night use
+ * is the common case) — :root IS the dark theme. `.light` class on <html>
+ * overrides to the light theme. This mirrors the design spec: monochrome
+ * base + a single accent, semantic colors reserved for content STATE
+ * (open/resolved errors, draft/published) rather than decoration.
+ */
+@layer base {
+  :root {
+    --background: 220 13% 5%;        /* bg #0A0B0D */
+    --surface: 220 10% 8%;           /* surface #121317 */
+    --surface-elevated: 220 10% 12%; /* surface-elevated #1B1D22 */
+    --foreground: 220 9% 96%;        /* text-primary #F2F2F3 */
+    --muted: 220 8% 12%;
+    --muted-foreground: 220 5% 65%;  /* text-secondary #A2A4AC */
+    --subtle-foreground: 220 5% 45%; /* text-muted #6B6D75 */
+    --border: 220 8% 15%;            /* border #24262C */
+
+    --primary: 224 100% 70%;         /* accent #5B8CFF */
+    --primary-foreground: 220 47% 8%;
+
+    --success: 152 63% 55%;          /* #3DD68C */
+    --success-foreground: 152 63% 10%;
+    --warning: 39 88% 64%;           /* #F5B94D */
+    --warning-foreground: 39 88% 10%;
+    --error: 3 87% 67%;              /* #F5615A */
+    --error-foreground: 3 87% 10%;
+    --info: 202 79% 66%;             /* #62B7F0 */
+    --info-foreground: 202 79% 10%;
+
+    --radius: 0.5rem;
+
+    --shadow-color: 220 40% 2%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --surface: 240 8% 97%;
+    --surface-elevated: 0 0% 100%;
+    --foreground: 230 20% 8%;
+    --muted: 240 8% 96%;
+    --muted-foreground: 220 6% 37%;
+    --subtle-foreground: 220 5% 58%;
+    --border: 220 15% 90%;
+
+    --primary: 226 89% 58%;          /* accent #3B6BEF */
+    --primary-foreground: 0 0% 100%;
+
+    --success: 155 79% 34%;          /* #17A870 */
+    --success-foreground: 0 0% 100%;
+    --warning: 37 78% 40%;           /* #B8791A */
+    --warning-foreground: 0 0% 100%;
+    --error: 2 66% 49%;              /* #D6403A */
+    --error-foreground: 0 0% 100%;
+    --info: 204 71% 44%;             /* #1E7BC7 */
+    --info-foreground: 0 0% 100%;
+
+    --shadow-color: 220 20% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    color-scheme: dark;
+  }
+  html.light {
+    color-scheme: light;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variant-numeric: tabular-nums;
+  }
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-mono), ui-monospace, "JetBrains Mono", monospace;
+  }
+  ::selection {
+    background-color: hsl(var(--primary) / 0.25);
+  }
+  /* Visible, consistent focus ring everywhere — never suppressed. */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .reading-column {
+    max-width: 46.5rem; /* ~720px, optimized for long-form reading */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
