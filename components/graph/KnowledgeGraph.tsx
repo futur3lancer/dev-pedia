@@ -105,7 +105,7 @@ const BOUNDARY_STRENGTH = 0.05;
 const LABEL_ALLOWANCE_FACTOR = 0.42;
 const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
 
-function buildSim(data: GraphData): { nodes: SimNode[]; edges: SimEdge[] } {
+function buildSim(data: GraphData): { nodes: SimNode[]; edges: SimEdge[]; boundaryRadius: number } {
   // Filled-disk ("sunflower seed") packing: pantay-pantay na kumakalat ang
   // mga node papuno ng isang bounded na circle sa halip na isang spiral na
   // lumalayo nang lumalayo — kaya kahit ilan pa ang node, naka-fit lahat sa
